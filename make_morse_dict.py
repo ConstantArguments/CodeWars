@@ -1,24 +1,30 @@
 """
-Does not include punctuation characters and 'SOS'.
+Does not include punctuation characters, nor 'SOS'.
 """
 # import string
 
-def make_morse_dict(x, y):
-    morse = {}
+def make_morse_dict(key, value):
+    """
+    Returns a dictionary.
+    :param key: list.
+    :param value: list.
+    """
+    a_dict = {}
     i = 0
-    for char in y:
-        morse[char] = x[i]
+    for char in key:
+        a_dict[char] = value[i]
         i += 1
-    return morse
+    return a_dict
 
-# x = list(string.ascii_lowercase) # needs import string -> ["a", "b", "c", ... "z"]
-alpha = "abcdefghijklmnopqrstuvwxyz"
-x = [char for char in alpha] # -> ["a", "b", "c", ... "z"]
-y = (
-    ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.."
-    " -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.."
+# alpha = list(string.ascii_lowercase) # requires import string -> ['a', 'b', 'c', ... 'z']
+alpha = 'abcdefghijklmnopqrstuvwxyz'
+alpha_list = [char for char in alpha] # -> ['a', 'b', 'c', ... 'z']
+
+morse = (
+    '.- -... -.-. -.. . ..-. --. .... .. .--- -.- .-..'
+    ' -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..'
     )
-y = y.split(" ")
+morse_list = morse.split(' ')
 
-morse_dict = make_morse_dict(x, y)
+morse_dict = make_morse_dict(morse_list, alpha_list)
 print(morse_dict)
