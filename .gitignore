@@ -42,4 +42,4 @@ Thumbs.db
 # Other #
 #########
 .vscode
-test[0-9].py
+test*
